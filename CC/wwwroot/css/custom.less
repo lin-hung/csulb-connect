@@ -1,0 +1,138 @@
+﻿/*variables*/
+@lyellow: #FBA600;
+@dgray: #2A2B2D;
+@mgray: #a3a3a3;
+@lgray: #D3D3D3;
+
+/**********/
+
+body {
+    padding-top: 2rem; //padding to compensate for navbar
+}
+
+#login {
+    background-color: @lgray;
+
+    .box {
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: white;
+        margin: 5rem auto 3rem auto;
+        //  margin-bottom:3rem;
+        padding: 0.25rem 0 1rem 0;
+
+        h2 {
+            padding-left: 1rem;
+        }
+
+        h4 {
+            padding-top: 1rem;
+        }
+
+        .boxcontent {
+            padding: 0 1rem 0 1rem;
+        }
+    }
+
+    .help-block {
+        margin: 0 0 0 1rem;
+        color: @mgray;
+    }
+}
+
+nav {
+    * {
+        background-color: @dgray !important;
+    }
+
+    border-bottom: 2px solid @lyellow;
+}
+
+#search {
+    position: relative;
+    top: 5rem;
+
+    .btn:active {
+        background-color: @lyellow;
+    }
+}
+
+#content {
+    padding-top: 3rem;
+
+    .card {
+        margin-top: 1rem;
+
+        .card-img {
+            object-fit: cover;
+            min-height: 15rem;
+            max-height: 12rem;
+            min-width: 7rem;
+        }
+
+        .card-img-overlay {
+            pointer-events: none;
+            text-shadow: 0 0 4px black;
+            color: white;
+
+            .card-title {
+                font-size: 1.5rem;
+            }
+
+            .memberCount {
+                position: absolute;
+                bottom: 0rem;
+                font-size: 130%;
+            }
+        }
+
+        .filter {
+            transition: opacity 0.3s ease;
+            background-color: gray;
+            opacity: 0.3;
+            pointer-events: auto;
+
+            &:hover {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+#footer {
+    display: relative;
+    top: 5rem;
+}
+
+@-moz-document url-prefix() {
+    #search {
+        form {
+            top: 5rem;
+        }
+    }
+}
+
+.modal {
+    img {
+        border-radius: 3px;
+        object-fit: cover;
+        max-width: 16rem;
+    }
+
+    .about {
+        padding: 2rem 1rem 1rem 1rem;
+    }
+
+    .card {
+        margin: 1rem 1rem 1rem 1rem;
+    }
+}
+
+.modal-open[style] {
+    padding-right: 1rem !important;
+}
+
+#modalbutton {
+    position: relative;
+    margin: 2rem auto auto 33%;
+}
