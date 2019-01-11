@@ -1,14 +1,9 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
-body {
-    
-}
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
 
-}
 
 /* Carousel */
 .carousel-caption p {
@@ -75,3 +70,21 @@ body {
         .card .filter:hover {
             opacity: 0;
         }
+
+
+.modal img {
+    border-radius: 3px;
+    object-fit: cover;
+    max-width: 16rem;
+}
+
+.modal .about {
+    padding: 2rem 1rem 1rem 1rem;
+}
+
+.modal .card {
+    margin: 1rem 1rem 1rem 1rem;
+}
+.modal .card-block {
+    padding:1rem;
+}

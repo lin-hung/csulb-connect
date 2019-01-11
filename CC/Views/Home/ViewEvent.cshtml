@@ -1,0 +1,17 @@
+﻿@model CC.Models.Event
+<div class="card">
+    <div class="card-block">
+        <h4 class="card-title"  >          
+            @Html.DisplayFor(model => model.EventName)
+</h4>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p class="card-text"><small class="text-muted">
+    @Html.DisplayFor(model => model.Location)
+    <br />            @Html.DisplayFor(model => model.Time) 
+</small></p>
+        <p class="card-text">
+            @Html.DisplayFor(model => model.Description)
+        </p>
+        <h5 class="attending">12 attending</h5>
+    </div>
+</div>

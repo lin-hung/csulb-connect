@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CC</title>
+    <title>@ViewData["Title"] - CSULB Connect</title>
     <link rel="icon"
           type="image/png"
           href="~/favicon.png">
@@ -23,43 +23,8 @@
 </head>
 <body>
 
-
-    @*<nav class="navbar navbar-inverse navbar-fixed-top">
-
-            <div class="container">
-                <div class="navbar-header">
-
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-                        <img src="~/images/logo.png" height=30 />
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown right">
-                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
-                                Jane Doe
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="#">My Events</a></li>
-                                <li><a class="nav-link" href="#">Sign Out</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </div>
-        </nav>*@
-
-    @*<nav class="navbar navbar-inverse navbar-fixed-top">*@
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">
+        <a asp-controller="Home" asp-action="Index" class="navbar-brand">
             <img src="~/images/logo.png" height=30 />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,6 +38,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="CreateEvent">Create an Event</a>
                 </li>
             </ul>
             <ul class="navbar-nav justify-content-end">

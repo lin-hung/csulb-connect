@@ -1,12 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Index";
 }
+@model IEnumerable<Group>
 @section Scripts{
     <p>ABCDEFG THIS IS THE OPTIONAL SCRIPTS SECTION</p>
 }
 
 <div class="jumbotron jumbotron-fluid" id="search">
-    <div class="container">
+    <div class="hidden">
+    @*<div class="container">
         <div class="container" id="modaldemo">
             <div class="modal fade" id="groupsmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -123,7 +125,8 @@
         </div>
 
 
-    </div>
+    </div>*@
+        </div>
 
     <div>
         <div class="input-group btn-group" role="group">
@@ -138,102 +141,88 @@
     </div>
 </div>
 <div class="container">
-        <div class="card-deck">
-            <div class="card">
-                <a data-toggle="modal" data-target="#groupsmodal">
-                    <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
-                    <div class="card-img-overlay filter"> </div>
-                    <div class="card-img-overlay">
-                        <h2 class="card-title">Book Club</h2>
-                        <p class="memberCount">10 members</p>
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img img-fluid" src="~/images/temp/soccer.jpg" />
+    @foreach (var group in Model)
+    {
+        <div class="card groupcard">
+            <a data-toggle="modal" data-target="#groupsmodal">
+                <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
                 <div class="card-img-overlay filter"> </div>
                 <div class="card-img-overlay">
-                    <h2 class="card-title">Soccer Club</h2>
-                    <p class="memberCount">25 members</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img img-fluid" src="~/images/temp/hiking.jpg" />
-                <div class="card-img-overlay filter"> </div>
-                <div class="card-img-overlay">
-                    <h2 class="card-title">Hiking</h2>
+                    <h2 class="card-title">@group.GroupName</h2>
                     <p class="memberCount">10 members</p>
                 </div>
+            </a>
+        </div>
+    }
+    
+    <hr/>
+    <div class="card-deck">
+        <div class="card groupcard">
+            <a data-toggle="modal" data-target="#groupsmodal">
+                <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
+                <div class="card-img-overlay filter"> </div>
+                <div class="card-img-overlay">
+                    <h2 class="card-title">Book Club</h2>
+                    <p class="memberCount">10 members</p>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="card">
+            <img class="card-img img-fluid" src="~/images/temp/soccer.jpg" />
+            <div class="card-img-overlay filter"> </div>
+            <div class="card-img-overlay">
+                <h2 class="card-title">Soccer Club</h2>
+                <p class="memberCount">25 members</p>
             </div>
         </div>
 
-        <div class="card-deck">
-            <div class="card">
-                <a data-toggle="modal" data-target="#groupsmodal">
-                    <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
-                    <div class="card-img-overlay filter"> </div>
-                    <div class="card-img-overlay">
-                        <h2 class="card-title">Book Club</h2>
-                        <p class="memberCount">10 members</p>
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img img-fluid" src="~/images/temp/soccer.jpg" />
-                <div class="card-img-overlay filter"> </div>
-                <div class="card-img-overlay">
-                    <h2 class="card-title">Soccer Club</h2>
-                    <p class="memberCount">25 members</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img img-fluid" src="~/images/temp/hiking.jpg" />
-                <div class="card-img-overlay filter"> </div>
-                <div class="card-img-overlay">
-                    <h2 class="card-title">Hiking</h2>
-                    <p class="memberCount">10 members</p>
-                </div>
+        <div class="card">
+            <img class="card-img img-fluid" src="~/images/temp/hiking.jpg" />
+            <div class="card-img-overlay filter"> </div>
+            <div class="card-img-overlay">
+                <h2 class="card-title">Hiking</h2>
+                <p class="memberCount">10 members</p>
             </div>
         </div>
-
-        <div class="card-deck">
-            <div class="card">
-                <a data-toggle="modal" data-target="#groupsmodal">
-                    <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
-                    <div class="card-img-overlay filter"> </div>
-                    <div class="card-img-overlay">
-                        <h2 class="card-title">Book Club</h2>
-                        <p class="memberCount">10 members</p>
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img img-fluid" src="~/images/temp/soccer.jpg" />
-                <div class="card-img-overlay filter"> </div>
-                <div class="card-img-overlay">
-                    <h2 class="card-title">Soccer Club</h2>
-                    <p class="memberCount">25 members</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img img-fluid" src="~/images/temp/hiking.jpg" />
-                <div class="card-img-overlay filter"> </div>
-                <div class="card-img-overlay">
-                    <h2 class="card-title">Hiking</h2>
-                    <p class="memberCount">10 members</p>
-                </div>
-            </div>
-        </div>
-
     </div>
 
+    <div class="card-deck">
+        <div class="card">
+            <a data-toggle="modal" data-target="#groupsmodal">
+                <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
+                <div class="card-img-overlay filter"> </div>
+                <div class="card-img-overlay">
+                    <h2 class="card-title">Book Club</h2>
+                    <p class="memberCount">10 members</p>
+                </div>
+            </a>
 
+        </div>
+
+        <div class="card">
+            <img class="card-img img-fluid" src="~/images/temp/soccer.jpg" />
+            <div class="card-img-overlay filter"> </div>
+            <div class="card-img-overlay">
+                <h2 class="card-title">Soccer Club</h2>
+                <p class="memberCount">25 members</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img img-fluid" src="~/images/temp/hiking.jpg" />
+            <div class="card-img-overlay filter"> </div>
+            <div class="card-img-overlay">
+                <h2 class="card-title">Hiking</h2>
+                <p class="memberCount">10 members</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="modal">
+
+</div>

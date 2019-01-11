@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using CC.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,4 +23,10 @@ namespace CC
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
+
+    //public class EventContext : DbContext
+    //{
+    //    public DbSet<Group> Groups { get; set; }
+    //    public DbSet<Event> Events { get; set; }
+    //}
 }

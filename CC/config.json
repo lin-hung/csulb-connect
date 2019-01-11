@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "GroupDataContext": "Server=(localdb)\\mssqllocaldb;Database=cc;Trusted_Connection=true;"
+  }
+}
