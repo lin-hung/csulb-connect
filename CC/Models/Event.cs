@@ -18,6 +18,6 @@ namespace CC.Models
     [NotMapped]
     public class CreateEventViewModel : Event
     {
-        public int GroupID { get; set; }
+        public long? GroupID { get; set; }
     }
 }

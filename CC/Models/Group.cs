@@ -10,7 +10,12 @@ namespace CC.Models
         public long Id { get; set; }
         public String GroupName { get; set; }
         public String Description { get; set; }
-        public virtual List<Event> Events { get; set; }
         public string ImagePath { get; set; }
+        public virtual List<Event> Events { get; set; }
+
+        public Group()
+        {
+            Events = new List<Event>();
+        }
     }
 }
