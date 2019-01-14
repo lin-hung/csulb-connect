@@ -143,8 +143,8 @@
 <div class="container">
     @foreach (var group in Model)
     {
-        <div class="card groupcard">
-            <a data-toggle="modal" data-target="#groupsmodal">
+        <div class="card groupcard" id="group_@group.Id">
+            <a data-toggle="modal" >
                 <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
                 <div class="card-img-overlay filter"> </div>
                 <div class="card-img-overlay">
@@ -158,7 +158,7 @@
     <hr/>
     <div class="card-deck">
         <div class="card groupcard">
-            <a data-toggle="modal" data-target="#groupsmodal">
+            <a data-toggle="modal" >
                 <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
                 <div class="card-img-overlay filter"> </div>
                 <div class="card-img-overlay">
@@ -190,7 +190,7 @@
 
     <div class="card-deck">
         <div class="card">
-            <a data-toggle="modal" data-target="#groupsmodal">
+            <a data-toggle="modal" >
                 <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
                 <div class="card-img-overlay filter"> </div>
                 <div class="card-img-overlay">
@@ -223,6 +223,6 @@
 </div>
 
 
-<div class="modal">
+<div id="replace">
 
 </div>

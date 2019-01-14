@@ -75,7 +75,7 @@ namespace CC.Controllers
                     Debug.WriteLine('\t' + e.EventName);
                 }
             }
-            return View("Index",_db.Groups);
+            return PartialView("Index",_db.Groups);
         }
 
     [Route("ViewGroup/{id:min(0)}")]
@@ -83,6 +83,10 @@ namespace CC.Controllers
         {
             var g = _db.Groups.Find(id);
             _db.Entry(g).Collection(x => x.Events).Load();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(g);
+            }
             return View(g);
         }
         [Route("ViewGroup")]

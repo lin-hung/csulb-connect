@@ -4,6 +4,11 @@
 // Write your JavaScript code.
 $(function () {
     $('.groupcard').click(function (e) {
+        var groupId = $(this).attr("id").split("_")[1];
+        $("#replace").load("/viewgroup/" + groupId,
+            function () {
+                $("#groupsmodal").modal('show');
 
+            });
     });
 })
