@@ -19,5 +19,6 @@ namespace CC.Models
     public class CreateEventViewModel : Event
     {
         public long? GroupID { get; set; }
+        public ICollection<Group> Groups { get; set; }
     }
 }

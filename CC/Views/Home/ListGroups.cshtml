@@ -1,0 +1,17 @@
+﻿@model IEnumerable<CC.Models.Group>
+
+<div class="card-columns" id="groupsList">
+    @foreach (var group in Model)
+    {
+        <div class="card groupcard" id="group_@group.Id">
+            <a data-toggle="modal">
+                <img class="card-img img-fluid" src="~/images/temp/bookclub.jpg" />
+                <div class="card-img-overlay filter"> </div>
+                <div class="card-img-overlay">
+                    <h2 class="card-title">@group.GroupName</h2>
+                    <p class="memberCount">10 members</p>
+                </div>
+            </a>
+        </div>
+    }
+</div>

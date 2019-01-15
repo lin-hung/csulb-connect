@@ -1,10 +1,51 @@
 ﻿@model CC.Models.Group
+@*<button class="btn btn-primary" data-toggle="modal" data-target="#createGroupModal">btn</button>*@
+<div class="modal fade" id="createGroupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Group</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-action="creategroup">
 
-<h4>Group</h4>
+                <div class="modal-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="GroupName" class="control-label">Group Name</label>
+                        <input asp-for="GroupName" class="form-control" />
+                        <span asp-validation-for="GroupName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImagePath" class="control-label">Image Path</label>
+                        <input asp-for="ImagePath" class="form-control" />
+                        <span asp-validation-for="ImagePath" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@*<h4>Group</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateGroup">
+        <form asp-action="Create Group">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="GroupName" class="control-label"></label>
@@ -30,5 +71,5 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
 

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<CC.Models.Event>
+
+<div class="container" id="eventsList">
+    <div class="card-columns">
+        @foreach (var item in Model)
+        {
+            @await Html.PartialAsync("ViewEvent", item);
+        }
+        </div>
+</div>

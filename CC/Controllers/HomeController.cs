@@ -22,11 +22,32 @@ namespace CC.Controllers
             var groups = _db.Groups;
             return View(groups);
         }
-
+        [Route("listevents")]
+        public IActionResult ListEvents()
+        {
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(_db.Events);
+            }
+            return View(_db.Events);
+        }
+        [Route("listgroups")]
+        public IActionResult Listgroups()
+        {
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(_db.Groups);
+            }
+                return View(_db.Groups);
+        }
         [HttpGet, Route("createevent")]
         public IActionResult CreateEvent()
         {
-            return View();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(new CreateEventViewModel { Groups = _db.Groups.ToList() });
+            }
+            return View(new CreateEventViewModel { Groups = _db.Groups.ToList() });
         }
         [HttpPost, Route("createevent")]
         public IActionResult CreateEvent(CreateEventViewModel e)
@@ -35,11 +56,16 @@ namespace CC.Controllers
             _db.Events.Add(e);
             _db.SaveChanges();
             var g = _db.Groups.Find(e.GroupID);
-            return RedirectToAction("ViewGroup", g);
+            // return RedirectToAction("ViewGroup", g);
+            return RedirectToAction("Index");
         }
         [HttpGet, Route("creategroup")]
         public IActionResult CreateGroup()
         {
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView();
+            }
             return View();
         }
         [HttpPost, Route("creategroup")]
@@ -47,7 +73,7 @@ namespace CC.Controllers
         {
             _db.Groups.Add(group);
             _db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
         [Route("ViewEvent/{id:min(0)}")]
         public IActionResult ViewEvent(long id)

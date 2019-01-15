@@ -37,7 +37,10 @@
                     <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="CreateEvent">Create an Event</a>
+                    <a class="nav-link" asp-controller="Home" asp-action="CreateEvent" id="createEvent">Create an Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="CreateGroup" id="createGroup">Create a Group</a>
                 </li>
             </ul>
             <ul class="navbar-nav justify-content-end">
@@ -59,6 +62,7 @@
 
     <div class="main">
         @RenderBody()
+        <div id="replace"></div>
         <hr />
         <footer>
             <p>&copy; 2018 - CC</p>
