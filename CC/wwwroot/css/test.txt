@@ -1,1 +1,133 @@
-﻿abc
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+
+.navbar {
+    background-color: #2A2B2D !important;
+}
+
+.search-button{
+    border-radius:0;
+}
+.search-bar {
+    border-radius: 0 !important;
+}
+
+.card {
+    margin-top: 1rem;
+}
+
+    .card .card-img {
+        object-fit: cover;
+        min-height: 15rem;
+        max-height: 12rem;
+        min-width: 7rem;
+    }
+
+    .card .card-img-overlay {
+        pointer-events: none;
+        text-shadow: 0 0 4px black;
+        color: white;
+    }
+
+        .card .card-img-overlay .card-title {
+            font-size: 1.5rem;
+        }
+
+        .card .card-img-overlay .memberCount {
+            position: absolute;
+            bottom: 0rem;
+            font-size: 130%;
+        }
+
+    .card .filter {
+        transition: opacity 0.3s ease;
+        background-color: gray;
+        opacity: 0.3;
+        pointer-events: auto;
+    }
+
+        .card .filter:hover {
+            opacity: 0;
+        }
+
+
+.modal img {
+    border-radius: 3px;
+    object-fit: cover;
+    max-width: 16rem;
+}
+
+.modal .about {
+    padding: 2rem 1rem 1rem 1rem;
+}
+
+.modal .card {
+    margin: 1rem 1rem 1rem 1rem;
+}
+.modal .card-block {
+    padding:1rem;
+}
+
+#eventsList .card {
+    margin: 1rem 1rem 1rem 1rem;
+    padding:1rem;
+}
+
+
+
+
+
+// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+// for details on configuring this project to bundle and minify static web assets.
+
+// Write your JavaScript code.
+$(function () {
+    $('#createEvent').click(function (e) {
+        e.preventDefault();
+        $("#replace").load("/createevent",
+            function () {
+                $("#createEventModal").modal('show');
+            });
+    });
+    $('#createGroup').click(function (e) {
+        e.preventDefault();
+        $("#replace").load("/creategroup",
+            function () {
+                $("#createGroupModal").modal('show');
+            });
+    });
+    $('.groupcard').click(function (e) {
+        var groupId = $(this).attr("id").split("_")[1];
+        $("#replace").load("/viewgroup/" + groupId,
+            function () {
+                $("#groupsmodal").modal('show');
+            });
+    });
+    $('#eventsButton').click(function (e) {
+        $("#itemList").load("/listevents");
+    });
+    $('#groupsButton').click(function (e) {
+        $("#itemList").load("/listgroups");
+    });
+})

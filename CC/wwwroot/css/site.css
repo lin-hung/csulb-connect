@@ -26,9 +26,10 @@ for details on configuring this project to bundle and minify static web assets. 
     background-color: #2A2B2D !important;
 }
 
-.search-button{
-    border-radius:0;
+.search-button {
+    border-radius: 0;
 }
+
 .search-bar {
     border-radius: 0 !important;
 }
@@ -85,11 +86,12 @@ for details on configuring this project to bundle and minify static web assets. 
 .modal .card {
     margin: 1rem 1rem 1rem 1rem;
 }
+
 .modal .card-block {
-    padding:1rem;
+    padding: 1rem;
 }
 
 #eventsList .card {
     margin: 1rem 1rem 1rem 1rem;
-    padding:1rem;
+    padding: 1rem;
 }
