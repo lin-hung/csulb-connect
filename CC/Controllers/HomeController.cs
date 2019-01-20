@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CC.Controllers
 {
@@ -40,6 +41,7 @@ namespace CC.Controllers
             }
                 return View(_db.Groups);
         }
+        [Authorize]
         [HttpGet, Route("createevent")]
         public IActionResult CreateEvent()
         {
@@ -49,6 +51,7 @@ namespace CC.Controllers
             }
             return View(new CreateEventViewModel { Groups = _db.Groups.ToList() });
         }
+        [Authorize]
         [HttpPost, Route("createevent")]
         public IActionResult CreateEvent(CreateEventViewModel e)
         {
@@ -59,6 +62,7 @@ namespace CC.Controllers
             // return RedirectToAction("ViewGroup", g);
             return RedirectToAction("Index");
         }
+        [Authorize]
         [HttpGet, Route("creategroup")]
         public IActionResult CreateGroup()
         {
@@ -68,6 +72,7 @@ namespace CC.Controllers
             }
             return View();
         }
+        [Authorize]
         [HttpPost, Route("creategroup")]
         public IActionResult CreateGroup(Group group)
         {
@@ -89,6 +94,7 @@ namespace CC.Controllers
         {
             return View(e);
           }
+        [Authorize]
         [Route("Test")]
         public IActionResult Test()
         {

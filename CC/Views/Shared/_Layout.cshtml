@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,8 +12,8 @@
           type="image/png"
           href="~/favicon.png">
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap-4.2.1-dist/css/bootstrap.css"/>
-        <link rel="stylesheet" href="~/css/site.css"/>
+        <link rel="stylesheet" href="~/lib/bootstrap-4.2.1-dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -30,31 +34,46 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="CreateEvent" id="createEvent">Create an Event</a>
-                </li>
+                @if (SignInManager.IsSignedIn(User))
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="CreateEvent" id="createEvent">Create an Event</a>
+                    </li>
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Home" asp-action="CreateGroup" id="createGroup">Create a Group</a>
                 </li>
+                }
             </ul>
             <ul class="navbar-nav justify-content-end">
-                <li class="nav-item dropdown">
-                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
-                        Jane Doe
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">My Events</a>
-                        <a class="dropdown-item" href="#">Sign Out</a>
-                        <partial name="_LoginPartial" />
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="nav-item dropdown">
 
-                    </div>
-                </li>
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
+                            @UserManager.GetUserName(User)
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">My Events</a>
+                            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" class="dropdown-item">My Account</a>
+
+                            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm">
+
+                                <button type="submit" class="btn btn-link navbar-btn navbar-link dropdown-item">Logout</button>
+
+                                @*<partial name="_LoginPartial" />*@
+                            </form>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+                    <li class="nav-item active"><a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+                }
 
             </ul>
         </div>
