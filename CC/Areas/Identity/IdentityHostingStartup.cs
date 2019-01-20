@@ -22,7 +22,13 @@ namespace CC.Areas.Identity
 
                 services.AddDefaultIdentity<IdentityUser>()
                     .AddEntityFrameworkStores<GroupDataContext>();
+                services.AddAuthentication().AddGoogle(googleOptions =>
+                {
+                    googleOptions.ClientSecret = "McndcKJPMu7hjOxL4FsXUo8n";
+                    googleOptions.ClientId = "859553687868-drlc8ikj2smnlp75mmojn9lgu656d4hr.apps.googleusercontent.com";
+                });
             });
+
         }
     }
 }
