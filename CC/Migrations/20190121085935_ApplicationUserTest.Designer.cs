@@ -4,14 +4,16 @@ using CC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CC.Migrations
 {
     [DbContext(typeof(GroupDataContext))]
-    partial class GroupDataContextModelSnapshot : ModelSnapshot
+    [Migration("20190121085935_ApplicationUserTest")]
+    partial class ApplicationUserTest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,36 +70,6 @@ namespace CC.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("CC.Areas.Identity.EventUser", b =>
-                {
-                    b.Property<string>("UserId");
-
-                    b.Property<long>("EventId");
-
-                    b.Property<int>("UserRole");
-
-                    b.HasKey("UserId", "EventId");
-
-                    b.HasIndex("EventId");
-
-                    b.ToTable("EventUser");
-                });
-
-            modelBuilder.Entity("CC.Areas.Identity.GroupUser", b =>
-                {
-                    b.Property<string>("UserId");
-
-                    b.Property<long>("GroupId");
-
-                    b.Property<int>("UserRole");
-
-                    b.HasKey("UserId", "GroupId");
-
-                    b.HasIndex("GroupId");
-
-                    b.ToTable("GroupUser");
                 });
 
             modelBuilder.Entity("CC.Models.Event", b =>
@@ -252,32 +224,6 @@ namespace CC.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("CC.Areas.Identity.EventUser", b =>
-                {
-                    b.HasOne("CC.Models.Event", "Event")
-                        .WithMany("Users")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("CC.Areas.Identity.ApplicationUser", "User")
-                        .WithMany("Events")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("CC.Areas.Identity.GroupUser", b =>
-                {
-                    b.HasOne("CC.Models.Group", "Group")
-                        .WithMany("Users")
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("CC.Areas.Identity.ApplicationUser", "User")
-                        .WithMany("Groups")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CC.Models.Event", b =>

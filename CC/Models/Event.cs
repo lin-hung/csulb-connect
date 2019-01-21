@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CC.Areas.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace CC.Models
         public DateTime Time { get; set; }
         public String Location { get; set; }
         public virtual Group Group { get; set; }
+        public virtual ICollection<EventUser> Users { get; set; }
     }
     [NotMapped]
     public class CreateEventViewModel : Event

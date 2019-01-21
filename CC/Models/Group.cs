@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CC.Areas.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,11 +12,11 @@ namespace CC.Models
         public String GroupName { get; set; }
         public String Description { get; set; }
         public string ImagePath { get; set; }
-        public virtual List<Event> Events { get; set; }
-
-        public Group()
-        {
-            Events = new List<Event>();
-        }
+        public virtual ICollection<Event> Events { get; set; }
+        public virtual ICollection<GroupUser> Users { get; set; }
+        //public Group()
+        //{
+        //    Events = new List<Event>();
+        //}
     }
 }
